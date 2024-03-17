@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Custom styles -->
+  <style>
+    /* Add custom styles here */
+    .menu-category-card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Menu Categories</h1>
+    <div id="menuCategories" class="row">
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="sushi.jpg" class="card-img-top" alt="Sushi">
+          <div class="card-body">
+            <h5 class="card-title">Sushi</h5>
+            <button class="btn btn-primary category-btn" data-category="A">View menu</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="beef.jpg" class="card-img-top" alt="Beef">
+          <div class="card-body">
+            <h5 class="card-title">Beef</h5>
+            <a href="#" class="btn btn-primary">View Menu</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="chicken.jpg" class="card-img-top" alt="Chicken">
+          <div class="card-body">
+            <h5 class="card-title">Chicken</h5>
+            <a href="#" class="btn btn-primary">View Menu</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add more cards for other categories as needed -->
+      
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="desserts.jpg" class="card-img-top" alt="Desserts">
+          <div class="card-body">
+            <h5 class="card-title">Desserts</h5>
+            <a href="#" class="btn btn-primary">View Menu</a>
+          </div>
+        </div>
+      </div>
+    
+    
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="noodles.jpg" class="card-img-top" alt="Noodles">
+          <div class="card-body">
+            <h5 class="card-title">Noodles</h5>
+            <a href="#" class="btn btn-primary">View Menu</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card menu-category-card">
+          <img src="Rice.jpg" class="card-img-top" alt="Rice">
+          <div class="card-body">
+            <h5 class="card-title">Rice</h5>
+            <a href="#" class="btn btn-primary">View Menu</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Bootstrap JS (optional if not already included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</script>
+<script>
+  $(document).ready(function(){
+      // Function to load menu category content dynamically
+      function loadMenuCategoryContent(category) {
+  // Show loading spinner
+  showLoadingSpinner();
+  
+  // Hide index content
+  $("#indexContent").hide();
+  
+  // Load content based on the category
+  $("#content").load(category + ".html", function(response, status, xhr) {
+      if (status == "error") {
+          // Handle error loading content
+          $("#content").html("<p>Error loading content. Please try again later.</p>");
+      } else {
+          // Push new state into history stack
+          history.pushState({}, null, "#" + category.toLowerCase());
+      }
+  });
+}
+      
+      // Handle click event for menu category buttons
+      $(".menu-category-card .btn-primary").click(function(e){
+          e.preventDefault(); // Prevent default anchor behavior
+          var category = $(this).closest('.card').find('.card-title').text().trim(); // Get category name from card title
+          loadMenuCategoryContent(category);
+          
+          // Update URL hash to reflect the selected category
+          history.pushState({}, null, "#" + category.toLowerCase());
+      });
+      
+      // Function to show the loading spinner
+      function showLoadingSpinner() {
+          $('#loading-spinner').show();
+          setTimeout(function(){
+              $('#loading-spinner').hide();
+          }, 1000); // 1 second delay to ensure the spinner is visible for at least 1 second
+      }
+  });
+  window.addEventListener('popstate', function(event) {
+  // Load content based on the URL hash
+  loadContentFromHash();
+});
+  </script>
+</body>
+</html>

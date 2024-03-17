@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food, LLC</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Custom styles (Thos theme) -->
+  <style>
+    body {
+      background-color: #F8F9FA; /* Light gray background */
+    }
+
+    /* Thos theme styles */
+    /* Add more Thos theme styles as needed */
+
+    /* Animation for nav item hover */
+    .nav-item a {
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-item a:hover {
+      color: #007BFF; /* Change the color to your preference */
+      animation: fadeIn 0.5s;
+    }
+
+    .nav-item {
+      font-weight: bold;
+      font-size: 3vh;
+    }
+
+    name {
+      line-height: 50px; /* Adjusted line height */
+      font-weight: 700;
+      font-size: 2rem; /* Adjusted font size */
+      color: #007BFF; /* Adjusted name color */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    #loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 9999; /* Ensure it appears on top of other content */
+    }
+
+    .spinner-border {
+      width: 5rem; /* Adjust the size of the spinner */
+      height: 5rem; /* Adjust the size of the spinner */
+      display: none; /* Hide the spinner by default */
+    }
+  
+    /* Add custom styles here */
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card-img-top{
+      height: 350px;
+    }
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="restaurant.png" alt="Icon" width="50" height="50" class="d-inline-block align-top">
+      <name>Food, LLC</name>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="">Specials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Map</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">Contact: XXX-XXX-XXXX</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Your website content goes here -->
+<div id="indexContent">
+<section  class="container mt-4">
+  <div class="row">
+      <div class="col-lg-8">
+          <h2>Welcome to Food, LLC!</h2>
+          <p>We are delighted to have you here. Explore our menu, discover our specials, and find us on the map. Enjoy a delightful dining experience with us!</p>
+          <a href="#explore" class="btn btn-primary">Explore Now</a>
+      </div>
+      <div class="col-lg-4">
+          <div class="quote">
+              <p>"Good food is the foundation of genuine happiness." - Auguste Escoffier</p>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="three-cards">
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src=" menu.jpg" class="card-img-top" alt="Menu Image">
+        <div class="card-body">
+          <h5 class="card-title">Menu</h5>
+          <p class="card-text">Explore our delicious menu options.</p>
+          <a  class="btn btn-primary" id="menuBtn">View Menu</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="specials.jpg" class="card-img-top" alt="Specials Image">
+        <div class="card-body">
+          <h5 class="card-title">Specials</h5>
+          <p class="card-text">Discover our latest specials and offers.</p>
+          <a id="specialsBtn" class="btn btn-primary" >View Specials</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3082.6914879966025!2d-76.71386219999999!3d39.36358739999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c81a14e7817803%3A0xab20a0e99daa17ea!2sDavid%20Chu's%20China%20Bistro!5e0!3m2!1sen!2sus!4v1648221649894!5m2!1sen!2sus"  style="border:0;" allowfullscreen="" loading="lazy" class="card-img-top"></iframe>
+        <div class="card-body">
+          <h5 class="card-title">Map</h5>
+          <p class="card-text">Find us on the map and get directions.</p>
+          <a href="https://www.google.com/maps/place/David+Chu's+China+Bistro/@39.3635874,-76.7138622,17z/data=!4m6!1m3!3m2!1s0x89c81a14e7817803:0xab20a0e99daa17ea!2sDavid+Chu's+China+Bistro!3m1!1s0x89c81a14e7817803:0xab20a0e99daa17ea" class="btn btn-primary" target="_blank">View Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<div id="loading-spinner" class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+</div>
+<div id="content">
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      // Function to show the loading spinner
+      function showLoadingSpinner() {
+          $('#loading-spinner').show();
+          setTimeout(function(){
+              $('#loading-spinner').hide();
+          }, 1000); // 1 second delay to ensure the spinner is visible for at least 1 second
+      }
+  
+      // Function to load index content
+      function loadIndexContent() {
+          $("#indexContent").show();
+          $("#content").empty(); // Clear any loaded content
+      }
+  
+      // Function to load content based on the URL hash
+      function loadContentFromHash() {
+          var hash = window.location.hash;
+          if (hash === "#menu") {
+              loadMenuContent();
+          } else if (hash === "#specials") {
+              loadSpecialsContent();
+          } else {
+              loadIndexContent();
+          }
+      }
+  
+      // Function to load menu content
+      function loadMenuContent() {
+          showLoadingSpinner();
+          $("#indexContent").hide();
+          $("#content").load("menu.html");
+      }
+  
+      // Function to load specials content
+      function loadSpecialsContent() {
+          showLoadingSpinner();
+          $("#indexContent").hide();
+          $("#content").load("specials.html");
+      }
+  
+      // Handle click event for menu button
+      $("#menuBtn").click(function(e){
+          e.preventDefault(); // Prevent default anchor behavior
+          loadMenuContent();
+          history.pushState({}, null, "#menu");
+      });
+  
+      // Handle click event for specials button
+      $("#specialsBtn").click(function(e){
+          e.preventDefault(); // Prevent default anchor behavior
+          loadSpecialsContent();
+          history.pushState({}, null, "#specials");
+      });
+      $("#").click(function(e){
+          e.preventDefault(); // Prevent default anchor behavior
+          loadSpecialsContent();
+          history.pushState({}, null, "#specials");
+      });
+      // Listen for back/forward navigation
+      window.addEventListener('popstate', function(event) {
+          loadContentFromHash();
+      });
+  
+      // Load content based on the URL hash initially
+      loadContentFromHash();
+  });
+  </script>
+  
+</body>
+</html>
